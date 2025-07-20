@@ -15,7 +15,10 @@ import os
 import sys
 from datetime import date, timedelta
 import datetime
-from dateutil.relativedelta import relativedelta
+try:
+    from dateutil.relativedelta import relativedelta
+except ImportError:
+    from dateutil import relativedelta
 # from datetime import datetime
 
 class Parser_Class:
@@ -958,7 +961,8 @@ print("Welcome to the GEDCOM file reader!\nType EXIT to exit the program.")
 
     # Find the file and parse it
 while True:
-    file_name = input("Please enter the name of the GEDCOM file to be processed: ")
+    #file_name = input("Please enter the name of the GEDCOM file to be processed: ")
+    file_name = "TEST_FILE.ged"
     if file_name == "EXIT":
         print("Exiting program.")
         exit()
